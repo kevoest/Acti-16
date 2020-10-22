@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="pagina">
+        <input type="text" v-model="productoNuevo " @keyup.enter = "agregarProductos">
+        <button @click = "agregarProductos">Agregar</button>
+        <li v-for="productos in productos">
+            {{productos.nombre}} - {{productos.cantidad}}
+            <button @click = "productos.cantidad++">+</button>
+            <button @click = "productos.cantidad--">-</button>
+            <span v-if = "productos.cantidad===0"> - sin stock</span>
+        </li>
+
+        <h1>Total: {{sumarCantidad}}</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+</html>
